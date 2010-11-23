@@ -238,22 +238,15 @@ button {  width: auto; overflow: visible; }
 
 /*----------------------------------------------------------------------*/
 
-html
-{
-	background:#004f7a url(images/des/bg_gradient.png) repeat-x;
-}
-
-body
-{
-	background:url(images/des/bg.png) no-repeat center top;
-}
+html { background:#004f7a url(images/des/bg_gradient.png) repeat-x; height:100%;}
+body { background:url(images/des/bg.png) no-repeat center top; min-height:100%; }
 
 #branding
 {
 	width:980px;
 	margin:0 auto;
 	height:32px;
-	padding:200px 0 0;
+	padding:110px 0 0;
 	text-align:center;
 	position:relative;
 }
@@ -261,7 +254,7 @@ body
 #logo
 {
 	position:absolute;
-	bottom:0;
+	top:15px;
 	left:0;
 	width:141px;
 	height:133px;
