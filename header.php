@@ -77,11 +77,11 @@
 	<div id="masthead">	
 		<div class="column">
 			<h1 class="twitter"><a href="http://twitter.com/SubriseGames">Twitter</a></h1>
-			<?php 	if ($xml=file_get_contents('http://twitter.com/users/show.xml?screen_name=SubriseGames'))
-					{
-						if (preg_match('/followers_count>(.*)</', $xml, $match) != 0)
-							echo '<p><em>' . $match[1] . '</em> followers</p>';
-					}
+			<?php 	//if ($xml=file_get_contents('http://twitter.com/users/show.xml?screen_name=SubriseGames'))
+					//{
+					//	if (preg_match('/followers_count>(.*)</', $xml, $match) != 0)
+					//		echo '<p><em>' . $match[1] . '</em> followers</p>';
+					//}
 					
 			?>
 		</div><!-- /column -->	
