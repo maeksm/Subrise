@@ -92,11 +92,6 @@ function twentyten_setup() {
 	if ( is_readable( $locale_file ) )
 		require_once( $locale_file );
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Navigation', 'twentyten' ),
-	) );
-
 	// This theme allows users to set a custom background
 	add_custom_background();
 
