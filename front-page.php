@@ -36,9 +36,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-	<link rel="shortcut icon" href="<?php echo bloginfo('template_url'); ?>/images/des/favicon.png" />
-	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
+	<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/des/favicon.png" />
+	<link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/images/des/apple-touch-icon.png" />
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rss2_url'); ?>" /> 
+	
 
 	<!-- CSS : implied media="all" -->
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/front-page.css" />
@@ -98,16 +99,15 @@
 		</ul>
 	<?php endif; ?>
 		
-		
+	<?php /* ?>
 	<div id="footer">
-		<div class="column">
-		</div><!-- /column -->
-		
 		<div class="column">
 			<h1 class="rss">RSS Feed</h1>
 			<p>Subscribe to our RSS feed to receive all the latest news and blog updates.</p>
 			<p><a href="#">&gt; Subscribe</a></p>
-			
+		</div><!-- /column -->
+		
+		<div class="column">
 			<h1 class="facebook">Facebook</h1>
 			<p>Check us out on Facebook for all kinds of updates, behind the scene pictures and more.</p>
 			<p><a href="#">&gt; Become our fan</a></p>
@@ -123,7 +123,9 @@
 			<h1 class="twitter"><a href="http://twitter.com/SubriseGames">Twitter</a></h1>
 		</div><!-- /column -->
 	</div><!-- /footer -->
-
+	*/ ?>
+	
+	<?php get_sidebar('footer'); ?>
 
 
 	<!-- Javascript at the bottom for fast page loading -->
@@ -140,6 +142,13 @@
 	<script src="<?php bloginfo('template_url'); ?>/js/script.js"></script>
 	<!-- end concatenated and minified scripts-->
 
-	
+	<?php
+		/* Always have wp_footer() just before the closing </body>
+		 * tag of your theme, or you will break many plugins, which
+		 * generally use this hook to reference JavaScript files.
+		 */
+
+		wp_footer();
+	?>
 </body>
 </html>

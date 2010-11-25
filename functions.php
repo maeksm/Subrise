@@ -95,122 +95,8 @@ function twentyten_setup() {
 	// This theme allows users to set a custom background
 	add_custom_background();
 
-	// Your changeable header business starts here
-	define( 'HEADER_TEXTCOLOR', '' );
-	// No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
-	define( 'HEADER_IMAGE', '%s/images/headers/path.jpg' );
-
-	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
-	// Add a filter to twentyten_header_image_width and twentyten_header_image_height to change these values.
-	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', 940 ) );
-	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', 198 ) );
-
-	// We'll be using post thumbnails for custom header images on posts and pages.
-	// We want them to be 940 pixels wide by 198 pixels tall.
-	// Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
-	set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
-
-	// Don't support text inside the header image.
-	define( 'NO_HEADER_TEXT', true );
-
-	// Add a way for the custom header to be styled in the admin panel that controls
-	// custom headers. See twentyten_admin_header_style(), below.
-	add_custom_image_header( '', 'twentyten_admin_header_style' );
-
-	// ... and thus ends the changeable header business.
-
-	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
-	register_default_headers( array(
-		'berries' => array(
-			'url' => '%s/images/headers/berries.jpg',
-			'thumbnail_url' => '%s/images/headers/berries-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Berries', 'twentyten' )
-		),
-		'cherryblossom' => array(
-			'url' => '%s/images/headers/cherryblossoms.jpg',
-			'thumbnail_url' => '%s/images/headers/cherryblossoms-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Cherry Blossoms', 'twentyten' )
-		),
-		'concave' => array(
-			'url' => '%s/images/headers/concave.jpg',
-			'thumbnail_url' => '%s/images/headers/concave-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Concave', 'twentyten' )
-		),
-		'fern' => array(
-			'url' => '%s/images/headers/fern.jpg',
-			'thumbnail_url' => '%s/images/headers/fern-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Fern', 'twentyten' )
-		),
-		'forestfloor' => array(
-			'url' => '%s/images/headers/forestfloor.jpg',
-			'thumbnail_url' => '%s/images/headers/forestfloor-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Forest Floor', 'twentyten' )
-		),
-		'inkwell' => array(
-			'url' => '%s/images/headers/inkwell.jpg',
-			'thumbnail_url' => '%s/images/headers/inkwell-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Inkwell', 'twentyten' )
-		),
-		'path' => array(
-			'url' => '%s/images/headers/path.jpg',
-			'thumbnail_url' => '%s/images/headers/path-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Path', 'twentyten' )
-		),
-		'sunset' => array(
-			'url' => '%s/images/headers/sunset.jpg',
-			'thumbnail_url' => '%s/images/headers/sunset-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Sunset', 'twentyten' )
-		)
-	) );
 }
 endif;
-
-if ( ! function_exists( 'twentyten_admin_header_style' ) ) :
-/**
- * Styles the header image displayed on the Appearance > Header admin panel.
- *
- * Referenced via add_custom_image_header() in twentyten_setup().
- *
- * @since Twenty Ten 1.0
- */
-function twentyten_admin_header_style() {
-?>
-<style type="text/css">
-/* Shows the same border as on front end */
-#headimg {
-	border-bottom: 1px solid #000;
-	border-top: 4px solid #000;
-}
-/* If NO_HEADER_TEXT is false, you would style the text with these selectors:
-	#headimg #name { }
-	#headimg #desc { }
-*/
-</style>
-<?php
-}
-endif;
-
-/**
- * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
- *
- * To override this in a child theme, remove the filter and optionally add
- * your own function tied to the wp_page_menu_args filter hook.
- *
- * @since Twenty Ten 1.0
- */
-function twentyten_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
-}
-add_filter( 'wp_page_menu_args', 'twentyten_page_menu_args' );
 
 /**
  * Sets the post excerpt length to 40 characters.
@@ -344,7 +230,7 @@ endif;
  * @uses register_sidebar
  */
 function twentyten_widgets_init() {
-	// Area 1, located at the top of the sidebar.
+	// Area 1, located at the right side
 	register_sidebar( array(
 		'name' => __( 'Primary Widget Area', 'twentyten' ),
 		'id' => 'primary-widget-area',
@@ -355,7 +241,7 @@ function twentyten_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 2, located below the Primary Widget Area in the sidebar. Empty by default.
+	// Area 2, located to the left of the Primary Widget Area in the sidebar. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Secondary Widget Area', 'twentyten' ),
 		'id' => 'secondary-widget-area',
@@ -371,8 +257,8 @@ function twentyten_widgets_init() {
 		'name' => __( 'First Footer Widget Area', 'twentyten' ),
 		'id' => 'first-footer-widget-area',
 		'description' => __( 'The first footer widget area', 'twentyten' ),
-		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</li>',
+		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
@@ -382,8 +268,8 @@ function twentyten_widgets_init() {
 		'name' => __( 'Second Footer Widget Area', 'twentyten' ),
 		'id' => 'second-footer-widget-area',
 		'description' => __( 'The second footer widget area', 'twentyten' ),
-		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</li>',
+		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
@@ -393,8 +279,8 @@ function twentyten_widgets_init() {
 		'name' => __( 'Third Footer Widget Area', 'twentyten' ),
 		'id' => 'third-footer-widget-area',
 		'description' => __( 'The third footer widget area', 'twentyten' ),
-		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</li>',
+		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
@@ -404,14 +290,204 @@ function twentyten_widgets_init() {
 		'name' => __( 'Fourth Footer Widget Area', 'twentyten' ),
 		'id' => 'fourth-footer-widget-area',
 		'description' => __( 'The fourth footer widget area', 'twentyten' ),
-		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</li>',
+		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
 }
 /** Register sidebars by running twentyten_widgets_init() on the widgets_init hook. */
 add_action( 'widgets_init', 'twentyten_widgets_init' );
+
+/**
+* RSS Widget
+* @since Subrise 0.1
+**/
+/**
+ *  SRW_RSS Class
+ */
+class SRW_RSS extends WP_Widget {
+	/** constructor */
+	function SRW_RSS() 
+	{
+		$widget_ops = array(
+			'classname' 	=> 'srw_rss', 
+			'description' 	=> __('A RSS link with some text')
+		);
+		parent::WP_Widget('srw_rss', __('Subrise Widget: RSS'), $widget_ops);
+	}
+
+	function widget( $args, $instance ) {
+		extract($args);
+		$title = apply_filters( 'widget_title', empty($instance['title']) ? '' : $instance['title'], $instance, $this->id_base);
+		$text = apply_filters( 'widget_text', $instance['text'], $instance );
+		echo $before_widget;
+		// echo $title
+		if ( ! empty( $title ) ) 
+		{ 
+			echo $before_title;
+			if ( empty($instance['link_url']) ) 
+				echo $title;
+			else
+				echo '<a href="'.$instance['link_url'].'">'.$title.'</a>';
+			echo $after_title; 
+		}
+		// echo text
+		echo '<div class="srw_text">';
+		if ($instance['filter'])
+		  	echo wpautop($text);
+		else
+			echo $text;
+		echo '</div>';
+		// echo link
+		if ( ! empty($instance['link_url']) )
+		{
+			echo '<div class="srw_link">';
+			echo '<a href="'.$instance['link_url'].'">'.$instance['link_text'].'</a></div>';
+		}
+		echo $after_widget;
+	}
+
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title'] 		= strip_tags($new_instance['title']);
+		$instance['link_url'] 	= strip_tags($new_instance['link_url']);
+		$instance['link_text'] 	= strip_tags($new_instance['link_text']);
+		if ( current_user_can('unfiltered_html') )
+			$instance['text'] =  $new_instance['text'];
+		else
+			$instance['text'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['text']) ) ); // wp_filter_post_kses() expects slashed
+		$instance['filter'] = isset($new_instance['filter']);
+		return $instance;
+	}
+
+	function form( $instance ) {
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
+		$title = strip_tags($instance['title']);
+		$text = format_to_edit($instance['text']);
+		$link_url = strip_tags($instance['link_url']);
+		$link_text = strip_tags($instance['link_text']);
+	?>
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+		</p>
+
+		<textarea class="widefat" rows="5" cols="10" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
+
+		<p>
+			<input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />
+			<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs'); ?></label>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('link_url')?>"><?php _e('Link url:');?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('link_url'); ?>" name="<?php echo $this->get_field_name('link_url'); ?>" type="text" value="<?php echo esc_attr($link_url); ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('link_text')?>"><?php _e('Link text:');?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('link_text'); ?>" name="<?php echo $this->get_field_name('link_text'); ?>" type="text" value="<?php echo esc_attr($link_text); ?>" />
+		</p>
+	<?php
+	}
+		
+} // class SubriseWidget
+// register SRW_RSS widget
+add_action('widgets_init', create_function('', 'return register_widget("SRW_RSS");'));
+
+/**
+* RSS Facebook
+* @since Subrise 0.1
+**/
+/**
+ *  SRW_Facebook Class
+ */
+class SRW_Facebook extends WP_Widget {
+	/** constructor */
+	function SRW_Facebook() 
+	{
+		$widget_ops = array(
+			'classname' 	=> 'srw_facebook', 
+			'description' 	=> __('A Facebook link with some text')
+		);
+		parent::WP_Widget('srw_facebook', __('Subrise Widget: Facebook'), $widget_ops);
+	}
+
+	function widget( $args, $instance ) {
+		extract($args);
+		$title = apply_filters( 'widget_title', empty($instance['title']) ? '' : $instance['title'], $instance, $this->id_base);
+		$text = apply_filters( 'widget_text', $instance['text'], $instance );
+		echo $before_widget;
+		// echo $title
+		if ( ! empty( $title ) ) 
+		{ 
+			echo $before_title;
+			if ( empty($instance['link_url']) ) 
+				echo $title;
+			else
+				echo '<a href="'.$instance['link_url'].'">'.$title.'</a>';
+			echo $after_title; 
+		}
+		// echo text
+		echo '<div class="srw_text">';
+		if ($instance['filter'])
+		  	echo wpautop($text);
+		else
+			echo $text;
+		echo '</div>';
+		// echo link
+		if ( ! empty($instance['link_url']) )
+		{
+			echo '<div class="srw_link">';
+			echo '<a href="'.$instance['link_url'].'">'.$instance['link_text'].'</a></div>';
+		}
+		echo $after_widget;
+	}
+
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title'] 		= strip_tags($new_instance['title']);
+		$instance['link_url'] 	= strip_tags($new_instance['link_url']);
+		$instance['link_text'] 	= strip_tags($new_instance['link_text']);
+		if ( current_user_can('unfiltered_html') )
+			$instance['text'] =  $new_instance['text'];
+		else
+			$instance['text'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['text']) ) ); // wp_filter_post_kses() expects slashed
+		$instance['filter'] = isset($new_instance['filter']);
+		return $instance;
+	}
+
+	function form( $instance ) {
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
+		$title = strip_tags($instance['title']);
+		$text = format_to_edit($instance['text']);
+		$link_url = strip_tags($instance['link_url']);
+		$link_text = strip_tags($instance['link_text']);
+	?>
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+		</p>
+
+		<textarea class="widefat" rows="5" cols="10" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
+
+		<p>
+			<input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />
+			<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs'); ?></label>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('link_url')?>"><?php _e('Link url:');?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('link_url'); ?>" name="<?php echo $this->get_field_name('link_url'); ?>" type="text" value="<?php echo esc_attr($link_url); ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('link_text')?>"><?php _e('Link text:');?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('link_text'); ?>" name="<?php echo $this->get_field_name('link_text'); ?>" type="text" value="<?php echo esc_attr($link_text); ?>" />
+		</p>
+	<?php
+	}
+		
+} // class SubriseWidget
+// register SRW_Facebook widget
+add_action('widgets_init', create_function('', 'return register_widget("SRW_Facebook");'));
 
 /**
  * Removes the default styles that are packaged with the Recent Comments widget.

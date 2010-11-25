@@ -396,14 +396,15 @@ body { background:url(images/des/bg.png) no-repeat center top; min-height:100%; 
 }
 /* footer
 *************************************************************************/
-#footer
+#footer-widget-area
 {
 	width:960px;
-	margin:5px auto 30px;
+	margin:5px auto 0;
+	padding: 0 0 30px;
 	overflow:hidden;
 }
 
-#footer .column
+#footer-widget-area .column
 {
 	float:left;
 	width:220px;
@@ -411,27 +412,35 @@ body { background:url(images/des/bg.png) no-repeat center top; min-height:100%; 
 	min-height:100px;
 }
 
-#footer h1
+.widget-container
+{
+	font-size:93%;
+	line-height:1.7em;
+}
+
+
+.widget-title
 {
 	font-size:108%;
 	text-shadow: 1px 1px 3px #000;
 	height:32px;
 	line-height:32px;
 	padding:0 0 0 40px;
-	margin:20px 0 0;
+	margin:20px 0 10px;
 }
-#footer h1.rss		{ background:url(images/des/rss.png) no-repeat left center;}
-#footer h1.facebook	{ background:url(images/des/facebook.png) no-repeat left center;}
-#footer h1.blog 	{ background:url(images/des/wordpress.png) no-repeat left center;}
-#footer h1.twitter	{ background:url(images/des/twitter.png) no-repeat left center;}
+.srw_rss .widget-title			{ background:url(images/des/rss.png) no-repeat left center;}
+.srw_facebook .widget-title		{ background:url(images/des/facebook.png) no-repeat left center;}
+.srw_highlights .widget-title	{ background:url(images/des/wordpress.png) no-repeat left center;}
+.widget_twitter .widget-title	{ background:url(images/des/twitter.png) no-repeat left center;}
 
-#footer p
+.widget-title a
 {
-	font-size:93%;
-	line-height:1.7em;
+	color:#eee;
+	text-decoration:none;
 }
 
-#footer a
+
+.srw_link a
 {
 	font-size:85%;
 	text-decoration:none;
@@ -439,16 +448,47 @@ body { background:url(images/des/bg.png) no-repeat center top; min-height:100%; 
 	font-style: italic;
 }
 
-#footer a:hover
+.srw_link a:hover
 {
 	color:#bfd6e2;
 }
 
-#footer h1 a
+
+
+.widget_twitter .tweets
 {
-	font-size:108%;
-	color:#eee;
-	font-style:normal;
+	background:#1b6287;
+	padding:10px 20px 10px 10px;
+	margin:0;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px;
+	background-color: #1b6287;
+	background-image: -moz-linear-gradient(top, #1b6287, #004f7a); /* FF3.6 */
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #1b6287),color-stop(1, #004f7a)); /* Saf4+, Chrome */
+						filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#1b6287', EndColorStr='#004f7a'); /* IE6,IE7 */
+						-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#1b6287', EndColorStr='#004f7a')"; /* IE8 */
+}
+
+.widget-area ul li
+{
+	color:#ddd;
+	margin:10px 0;
+}
+
+.widget-area ul a
+{
+	text-decoration:underline;
+	color:#ddd;
+	font-size:93%;
+	font-style: normal;
+}
+.widget-area ul a:hover { text-decoration:none; }
+
+.widget_twitter .date
+{
+	color:#202020;
+	font-size:77%;
 }
 
 
