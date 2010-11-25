@@ -1,3 +1,11 @@
 SUBRISE WORDPRESS THEME
 
 This is my first semi serious wordpress theme. I only put it on github so that I can easily access it. 
+
+v0.0.2
++   Frontpage has four footer widget areas
++   Two simple widgets are created, RSS and Facebook. Might make the facebook widget more interesting
+-   Adjusted the twitter widget, might take it over and use adjust it more too my liking
+-   Still need to create highlight widget.. Shouldn't be too difficult
+-   Blog layout still sucks.. might change some colors later on the day.. will change it more to my own style 
+    in the future ofcourse..
