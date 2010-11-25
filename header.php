@@ -43,7 +43,7 @@
 	
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="<?php echo bloginfo('template_url'); ?>/images/des/favicon.png" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/images/des/apple-touch-icon.png" />
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
@@ -75,33 +75,43 @@
 	</div><!-- /branding -->
 	
 	<div id="masthead">	
-		<div class="column">
-			<h1 class="twitter"><a href="http://twitter.com/SubriseGames">Twitter</a></h1>
-			<?php 	//if ($xml=file_get_contents('http://twitter.com/users/show.xml?screen_name=SubriseGames'))
-					//{
-					//	if (preg_match('/followers_count>(.*)</', $xml, $match) != 0)
-					//		echo '<p><em>' . $match[1] . '</em> followers</p>';
-					//}
-					
-			?>
+		<div id="headerOne" class="column">
+			<div class="widget-container widget_twitter">
+				<h3 class="widget-title"><a href="http://twitter.com/SubriseGames">Twitter</a></h3>
+				<div class="srw_text">
+				<?php	if ($xml=file_get_contents('http://twitter.com/users/show.xml?screen_name=SubriseGames'))
+						{
+							if (preg_match('/followers_count>(.*)</', $xml, $match) != 0)
+								echo '<p><em>' . $match[1] . '</em> followers</p>';
+						}
+				?>
+				</div>
+				<div class="srw_link"><a href="http://twitter.com/SubriseGames">> Follow us on Twitter</a></div>
+			</div>
 		</div><!-- /column -->	
 		
-		<div class="column">
-			<h1 class="rss">RSS Feed</h1>
-			<p>Subscribe to our RSS feed to receive all the latest news and blog updates.</p>
-			<p><a href="#">&gt; Subscribe</a></p>
-		</div><!-- /column -->
-		
-		<div class="column">
-			<h1 class="facebook">Facebook</h1>
-			<p>Check us out on Facebook for all kinds of updates, pictures and more.</p>
-			<p><a href="#">&gt; Become our fan</a></p>
-		</div><!-- /column -->
-		
-		<div class="column">
-			<h1>Search</h1>
-			<?php get_search_form(); ?>
-		</div><!-- /column -->
+		<div id="headerTwo" class="column"> 
+			<div id="srw_rss-3" class="widget-container srw_rss">
+				<h3 class="widget-title"><a href="http://subrise.dev/feeds">RSS Feed</a></h3>
+				<div class="srw_text">Subscribe to our RSS feed to receive all the latest news and blog updates.</div>
+				<div class="srw_link"><a href="http://subrise.dev/feed">> Subscribe</a></div>
+			</div>				
+		</div><!-- #headerTwo .column --> 
+
+		<div id="headerThree" class="column"> 
+			<div id="srw_facebook-3" class="widget-container srw_facebook">
+				<h3 class="widget-title"><a href="#">Facebook</a></h3>
+				<div class="srw_text">Check us out on Facebook for all kinds of updates, pictures and more.</div>
+				<div class="srw_link"><a href="#">> Become our fan</a></div>
+			</div>
+		</div><!-- #headerThree .column --> 
+
+		<div id="headerFour" class="column"> 
+			<div id="srw_highlights-3" class="widget-container srw_highlights"> 
+				<h3 class="widget-title">Search</h3> 
+				<div class="srw_text"><?php get_search_form(); ?></div> 
+			</div> 
+		</div><!-- #headerFour .column -->
 	</div><!-- #masthead -->
 
 
