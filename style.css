@@ -278,7 +278,7 @@ body { background: url(images/des/bg.png) no-repeat center top; min-height:100%;
 
 #branding
 {
-	width:980px;
+	width:960px;
 	margin:0 auto;
 	height:32px;
 	padding:110px 0 0;
@@ -290,7 +290,7 @@ body { background: url(images/des/bg.png) no-repeat center top; min-height:100%;
 {
 	position:absolute;
 	top:15px;
-	right:0;
+	right:10px;
 	width:141px;
 	height:133px;
 	background:url(images/des/subrise-logo.png) no-repeat;
@@ -306,7 +306,7 @@ body { background: url(images/des/bg.png) no-repeat center top; min-height:100%;
 
 .home #logo
 {
-	left:0;
+	left:10px;
 }
 
 
@@ -314,7 +314,7 @@ body { background: url(images/des/bg.png) no-repeat center top; min-height:100%;
 *************************************************************************/
 #nav
 {
-	width:780px;
+	width:960px;
 	margin:0 auto;
 	overflow:hidden;
 	padding:0 0 0 200px;
@@ -464,14 +464,14 @@ body { background: url(images/des/bg.png) no-repeat center top; min-height:100%;
 
 #main
 {
-	width:980px;
+	width:940px;
 	margin:0 auto;
 	overflow:hidden;
 }
 
 #container
 {
-	width:680px;
+	width:620px;
 	float:left;
 }
 
@@ -479,7 +479,7 @@ body { background: url(images/des/bg.png) no-repeat center top; min-height:100%;
 {
 	float:right;
 	width:140px;
-	padding:0 0 0 10px;
+	padding:0 0 0 20px;
 }
 
 /* =Comments
