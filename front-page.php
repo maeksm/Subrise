@@ -117,32 +117,6 @@
 			<?php endforeach; ?>
 		</ul>
 	<?php endif; ?>
-		
-	<?php /* ?>
-	<div id="footer">
-		<div class="column">
-			<h1 class="rss">RSS Feed</h1>
-			<p>Subscribe to our RSS feed to receive all the latest news and blog updates.</p>
-			<p><a href="#">&gt; Subscribe</a></p>
-		</div><!-- /column -->
-		
-		<div class="column">
-			<h1 class="facebook">Facebook</h1>
-			<p>Check us out on Facebook for all kinds of updates, behind the scene pictures and more.</p>
-			<p><a href="#">&gt; Become our fan</a></p>
-		</div><!-- /column -->
-		
-		<div class="column">
-			<h1 class="blog"><a href="<?=get_permalink(get_option('page_for_posts'))?>">Developers Blog</a></h1>
-			<p>Read our latest game developments and news on our Developers Blog.</p>
-			<p><a href="<?=get_permalink(get_option('page_for_posts'))?>">&gt; Check our blog</a></p>
-		</div><!-- /column -->
-		
-		<div class="column">
-			<h1 class="twitter"><a href="http://twitter.com/SubriseGames">Twitter</a></h1>
-		</div><!-- /column -->
-	</div><!-- /footer -->
-	*/ ?>
 	
 	<?php get_sidebar('footer'); ?>
 
