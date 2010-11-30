@@ -713,7 +713,7 @@ h3#reply-title {
 }
 .srw_rss .widget-title	a		{ background:url(images/des/rss.png) no-repeat left center;}
 .srw_facebook .widget-title	a	{ background:url(images/des/facebook.png) no-repeat left center;}
-.srw_highlights .widget-title a	{ background:url(images/des/wordpress.png) no-repeat left center;}
+.srw_blog .widget-title a		{ background:url(images/des/wordpress.png) no-repeat left center;}
 .widget_twitter .widget-title a	{ background:url(images/des/twitter.png) no-repeat left center;}
 
 .widget-title a:hover

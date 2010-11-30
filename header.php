@@ -75,43 +75,7 @@
 	</div><!-- /branding -->
 	
 	<div id="masthead">	
-		<div id="headerOne" class="column">
-			<div class="widget-container widget_twitter">
-				<h3 class="widget-title"><a href="http://twitter.com/SubriseGames">Twitter</a></h3>
-				<div class="srw_text">
-				<?php	if ($xml=file_get_contents('http://twitter.com/users/show.xml?screen_name=SubriseGames'))
-						{
-							if (preg_match('/followers_count>(.*)</', $xml, $match) != 0)
-								echo '<p><em>' . $match[1] . '</em> followers</p>';
-						}
-				?>
-				</div>
-				<div class="srw_link"><a href="http://twitter.com/SubriseGames">> Follow us on Twitter</a></div>
-			</div>
-		</div><!-- /column -->	
-		
-		<div id="headerTwo" class="column"> 
-			<div id="srw_rss-3" class="widget-container srw_rss">
-				<h3 class="widget-title"><a href="http://subrise.dev/feeds">RSS Feed</a></h3>
-				<div class="srw_text">Subscribe to our RSS feed to receive all the latest news and blog updates.</div>
-				<div class="srw_link"><a href="http://subrise.dev/feed">> Subscribe</a></div>
-			</div>				
-		</div><!-- #headerTwo .column --> 
-
-		<div id="headerThree" class="column"> 
-			<div id="srw_facebook-3" class="widget-container srw_facebook">
-				<h3 class="widget-title"><a href="#">Facebook</a></h3>
-				<div class="srw_text">Check us out on Facebook for all kinds of updates, pictures and more.</div>
-				<div class="srw_link"><a href="#">> Become our fan</a></div>
-			</div>
-		</div><!-- #headerThree .column --> 
-
-		<div id="headerFour" class="column"> 
-			<div id="srw_highlights-3" class="widget-container srw_highlights"> 
-				<h3 class="widget-title">Search</h3> 
-				<div class="srw_text"><?php get_search_form(); ?></div> 
-			</div> 
-		</div><!-- #headerFour .column -->
+		<?php get_sidebar('header'); ?>
 	</div><!-- #masthead -->
 
 
