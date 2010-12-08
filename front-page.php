@@ -120,6 +120,9 @@
 	
 	<?php get_sidebar('footer'); ?>
 
+	<div id="copyright">
+		Copyright &copy; 2010 Subrise Games. All Rights Reserved.
+	</div><!-- /copyright -->
 
 	<!-- Javascript at the bottom for fast page loading -->
 

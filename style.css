@@ -314,10 +314,9 @@ body { background: url(images/des/bg.png) no-repeat center top; min-height:100%;
 *************************************************************************/
 #nav
 {
-	width:960px;
-	margin:0 auto;
 	overflow:hidden;
 	padding:0 0 0 240px;
+	margin:0;
 }
 
 #nav li
@@ -492,7 +491,6 @@ body { background: url(images/des/bg.png) no-repeat center top; min-height:100%;
 }
 h3#comments-title,
 h3#reply-title {
-	color: #000;
 	font-size: 20px;
 	font-weight: bold;
 	margin-bottom: 0;
@@ -776,7 +774,7 @@ h3#reply-title {
 
 #primary .widget-container, #secondary .widget-container
 {
-	padding:10px 20px 10px 10px;
+	padding:10px;
 	margin:0 0 15px;
 	-moz-border-radius: 5px; 
 	-webkit-border-radius: 5px; 
@@ -825,6 +823,16 @@ h3#reply-title {
 	color:#eee;
 	text-decoration:none;
 }
+
+/* Copyright
+*************************************************************************/
+#copyright
+{
+	font-size:82%;
+	text-align:center;
+	color:#002e47;
+}
+
 /* Blog wordpress stuff
 *************************************************************************/
 .page-title
@@ -833,7 +841,7 @@ h3#reply-title {
 	font-size: 100%;
 	color:#eee;
 	text-shadow: 1px 1px 3px #000;
-	float:right;
+	margin:0 0 20px;
 }
 .entry-title
 {
@@ -853,6 +861,41 @@ h3#reply-title {
 .entry-utility a:hover	{ text-decoration:none;}
 
 
+.post
+{
+	padding:10px;
+	margin:0 0 15px;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px;
+	
+	background-image: -moz-linear-gradient(
+	  rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 95%
+	);
+	background-image: -webkit-gradient(
+	  linear, left top, left bottom, from(rgba(255,255,255,0.1)),
+	  to(rgba(255,255,255,0))
+	);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff19', EndColorStr='#ffffff00'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff19', EndColorStr='#ffffff00')"; /* IE8 */
+}
+
+.nav-previous
+{
+	margin:0 0 15px;
+}
+
+.nav-previous a
+{
+	text-decoration:none;
+	color:#eee;
+}
+
+.nav-previous a:hover
+{
+	border-bottom:1px outset #eee ;
+	/*border-style: none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset;*/
+}
 
 
 /*
