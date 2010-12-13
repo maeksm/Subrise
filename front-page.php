@@ -127,8 +127,10 @@
 	<!-- Javascript at the bottom for fast page loading -->
 
 	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-	<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php bloginfo('template_url'); ?>/js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+	<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php bloginfo('template_url'); ?>/js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script> -->
+	
+		<script src="<?php bloginfo('template_url'); ?>/js/libs/jquery-1.4.2.js"></script>
 	
 	<!-- roundabout: http://fredhq.com/projects/roundabout -->
 	<script src="<?php bloginfo('template_url'); ?>/js/libs/jquery.roundabout.js" type="text/javascript" charset="utf-8"></script>

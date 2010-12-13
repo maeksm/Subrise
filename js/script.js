@@ -8,15 +8,15 @@ $(document).keydown(function(e) {
 	kkeys.push( e.keyCode );
 	if ( kkeys.toString().indexOf( konami ) >= 0 ){
 		$(document).unbind('keydown',arguments.callee);
-		$.getScript('http://www.somethinghitme.com/wp-content/themes/somethinghitme/js/snowfall.min.jquery.js',function(){
-			alert("Merry Christmas");
-			$(document).snowfall({flakeCount: 100, maxSpeed:10});
-		});          
+		$.getScript('http://subrise.dev/wp-content/themes/subrise/js/mylibs/jquery.bubbleup.js',function(){
+			$(document).bubbleup({bubbleCount: 50, maxSpeed:-10, minSpeed:-2});
+		});       
   }
 });
 
 
 $(document).ready(function() {
+	
 	$('#contentCarousel').roundabout({
 		reflect:true,
 		clickToFocus:false,
